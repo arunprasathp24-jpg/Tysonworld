@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TYSON WORLD | Your Business Deserves More Than Just a Website</title>
+  <meta name="description" content="TYSON WORLD creates professional, modern, and engaging websites that help businesses build trust, attract customers, and grow beyond boundaries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #0c1321;
+      color: #dce2f6;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+
+    .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+    /* ---------- Shared pills and headings ---------- */
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 16px; border-radius: 9999px;
+      font-family: 'Inter', sans-serif; font-weight: 700; font-size: 11px;
+      letter-spacing: 0.55px; text-transform: uppercase; line-height: 14px;
+    }
+    .pill--blue-light { background: #dbeafe; color: #1d4ed8; }
+    .pill--blue-soft  { background: #eff6ff; color: #2563eb; }
+    .pill--glass      { background: rgba(35,42,57,0.8); color: #a4c9ff; font-weight: 600; letter-spacing: 0.55px; backdrop-filter: blur(12px); box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+    .pill--glass .dot { width: 8px; height: 8px; border-radius: 9999px; background: #a4c9ff; box-shadow: 0 0 8px rgba(164,201,255,0.8); }
+
+    .section-header { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 768px; margin: 0 auto; gap: 16px; }
+    .section-title {
+      font-weight: 700; color: #0f172a; font-size: 36px; line-height: 44px; letter-spacing: -0.9px;
+    }
+    .section-sub { color: #475569; font-size: 16px; line-height: 26px; max-width: 672px; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      height: 56px; padding: 0 40px; border-radius: 12px; border: 0; cursor: pointer;
+      font-weight: 600; font-size: 14px; letter-spacing: 0.28px; transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn--primary { background: #2563eb; color: #eeefff; box-shadow: 0 0 14px rgba(37,99,235,0.45); }
+    .btn--primary:hover { background: #1d4ed8; }
+    .btn--ghost { background: rgba(35,42,57,0.7); color: #dce2f6; padding: 0 24px; backdrop-filter: blur(12px); }
+    .btn--ghost:hover { background: rgba(50,58,78,0.8); }
+    .btn:disabled { opacity: .7; cursor: wait; transform: none; }
+
+    /* ---------- 1. HERO ---------- */
+    .hero {
+      position: relative; overflow: hidden;
+      background: #0c1321;
+      padding: 112px 32px 112px;
+    }
+    .glow {
+      position: absolute; border-radius: 9999px; pointer-events: none;
+    }
+    .glow--top { width: 60%; height: 384px; top: -128px; left: 10%; background: rgba(37,99,235,0.2); filter: blur(120px); }
+    .glow--right { width: 500px; height: 500px; right: -80px; top: 50%; transform: translateY(-50%); background: rgba(2,103,184,0.15); filter: blur(140px); }
+    .hero__grid {
+      position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: center;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .hero__copy { grid-column: 1 / span 7; }
+    .hero__eyebrow { margin-bottom: 24px; }
+    .hero__eyebrow .pill { color: #a4c9ff; }
+    .hero h1 {
+      font-weight: 700; font-size: 48px; line-height: 1.12; letter-spacing: -1.2px; color: #dce2f6; margin-bottom: 24px;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #b4c5ff 0%, #a4c9ff 50%, #2563eb 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero__body { color: #c3c6d7; font-size: 18px; line-height: 29px; letter-spacing: -0.18px; max-width: 672px; margin-bottom: 40px; }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 40px; }
+    .hero__trust { display: flex; gap: 16px; flex-wrap: wrap; padding-top: 16px; }
+    .trust-item { flex: 1 1 0; min-width: 180px; display: flex; align-items: center; gap: 8px; color: #dce2f6; font-size: 12px; font-weight: 500; letter-spacing: 0.48px; }
+    .trust-item svg { width: 17px; height: 17px; flex-shrink: 0; color: #a4c9ff; }
+
+    .hero__visual { grid-column: 8 / span 5; position: relative; padding: 12px; border-radius: 24px; background: rgba(25,32,46,0.6); backdrop-filter: blur(24px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+    .stage {
+      position: relative; height: 348px; border-radius: 16px; overflow: hidden;
+      background: linear-gradient(160deg, #1a2540 0%, #0c1321 60%, #070e1c 100%);
+    }
+    .stage__browser { position: absolute; inset: 24px 24px 0 24px; background: #111a2e; border-radius: 12px 12px 0 0; border: 1px solid rgba(164,201,255,0.12); border-bottom: 0; padding: 14px; }
+    .stage__bar { display: flex; gap: 6px; margin-bottom: 14px; }
+    .stage__bar span { width: 8px; height: 8px; border-radius: 9999px; background: rgba(164,201,255,0.35); }
+    .stage__hero-block { height: 60px; border-radius: 8px; background: linear-gradient(90deg, rgba(37,99,235,0.5), rgba(164,201,255,0.2)); margin-bottom: 12px; }
+    .stage__cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+    .stage__cols div { height: 56px; border-radius: 8px; background: rgba(164,201,255,0.08); border: 1px solid rgba(164,201,255,0.1); }
+    .stage__chart { display: flex; align-items: flex-end; gap: 6px; height: 70px; }
+    .stage__chart span { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(to top, #2563eb, #a4c9ff); opacity: .85; }
+    .gradient-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(12,19,33,0.8), rgba(12,19,33,0)); pointer-events: none; }
+
+    .badge {
+      position: absolute; display: flex; align-items: center; gap: 8px;
+      background: rgba(35,42,57,0.92); backdrop-filter: blur(24px);
+      border-radius: 12px; padding: 10px 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+      white-space: nowrap; z-index: 2;
+    }
+    .badge__label { font-size: 11px; letter-spacing: 0.88px; text-transform: uppercase; color: #c3c6d7; font-weight: 600; line-height: 14px; }
+    .badge__value { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; color: #dce2f6; line-height: 20px; }
+    .badge--global { top: -20px; right: -20px; }
+    .badge--growth { bottom: -24px; left: -24px; padding: 12px 16px; border-radius: 12px; background: rgba(35,42,57,0.95); }
+    .badge--growth .big { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #a4c9ff; line-height: 28px; }
+    .badge--growth .sub { font-size: 12px; color: #c3c6d7; line-height: 18px; }
+    .badge--online { top: 32px; left: -28px; border-radius: 9999px; padding: 8px 14px; font-size: 12px; font-weight: 500; color: #dce2f6; letter-spacing: 0.48px; }
+    .badge--online .dot { width: 10px; height: 10px; border-radius: 9999px; background: #34d399; box-shadow: 0 0 8px rgba(52,211,153,0.8); }
+    .badge--engage { bottom: -20px; right: 24px; padding: 8px 14px; font-size: 12px; font-weight: 600; color: #dce2f6; letter-spacing: 0.48px; }
+    .badge__icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(37,99,235,0.2); display: grid; place-items: center; color: #a4c9ff; flex-shrink: 0; }
+    .badge__icon svg { width: 18px; height: 18px; }
+
+    /* ---------- 2. IMPACT ---------- */
+    .impact { background: #f8fafc; padding: 96px 0; }
+    .impact__grid { display: flex; flex-direction: column; gap: 64px; align-items: center; }
+    .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; width: 100%; }
+    .stat-card {
+      background: #fff; border-radius: 16px; padding: 32px;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+      display: flex; flex-direction: column;
+    }
+    .stat-card__icon { width: 48px; height: 48px; border-radius: 12px; background: #eff6ff; display: grid; place-items: center; margin-bottom: 24px; color: #2563eb; }
+    .stat-card__icon svg { width: 22px; height: 22px; }
+    .stat-card__num { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 48px; line-height: 56px; letter-spacing: -1.2px; color: #0f172a; margin-bottom: 8px; }
+    .stat-card__label { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 20px; line-height: 28px; color: #1e293b; letter-spacing: -0.2px; margin-bottom: 8px; }
+    .stat-card__desc { font-size: 14px; line-height: 22px; color: #64748b; }
+
+    /* ---------- 3. LEAD GEN / CONTACT ---------- */
+    .lead { position: relative; overflow: hidden; background: #0c1321; padding: 96px 0; }
+    .lead .glow--bottom { width: 50%; height: 600px; bottom: -200px; left: 28%; background: rgba(37,99,235,0.15); filter: blur(160px); }
+    .lead__grid {
+      position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 32px; align-items: center;
+    }
+    .lead__copy { grid-column: 1 / span 6; }
+    .eyebrow-text { font-size: 11px; font-weight: 600; letter-spacing: 1.1px; text-transform: uppercase; color: #a4c9ff; margin-bottom: 8px; }
+    .lead h2 { font-size: 36px; line-height: 44px; letter-spacing: -0.9px; color: #dce2f6; font-weight: 700; margin-bottom: 16px; }
+    .lead__body { color: #c3c6d7; font-size: 16px; line-height: 26px; margin-bottom: 40px; max-width: 560px; }
+    .benefits { display: flex; flex-direction: column; gap: 16px; }
+    .benefit {
+      display: flex; gap: 16px; align-items: flex-start; padding: 16px; border-radius: 16px;
+      background: rgba(25,32,46,0.7); backdrop-filter: blur(4px);
+    }
+    .benefit__icon { width: 40px; height: 40px; border-radius: 12px; background: rgba(37,99,235,0.2); display: grid; place-items: center; flex-shrink: 0; color: #a4c9ff; }
+    .benefit__icon svg { width: 18px; height: 18px; }
+    .benefit h4 { font-size: 20px; line-height: 28px; letter-spacing: -0.2px; color: #dce2f6; font-weight: 600; margin-bottom: 4px; }
+    .benefit p { font-size: 14px; line-height: 22px; color: #c3c6d7; }
+
+    .lead__form-card {
+      grid-column: 7 / span 6; background: #fff; border-radius: 24px; padding: 40px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .lead__form-card h3 { font-size: 24px; line-height: 32px; letter-spacing: -0.36px; color: #0f172a; font-weight: 700; }
+    .lead__form-card .form-sub { font-size: 14px; line-height: 22px; color: #64748b; margin-bottom: 8px; }
+    .form { display: flex; flex-direction: column; gap: 16px; padding-top: 16px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 12px; font-weight: 600; letter-spacing: 0.48px; color: #334155; }
+    .field input {
+      height: 44px; padding: 0 14px; border: 1px solid transparent; border-radius: 8px;
+      background: #f8fafc; color: #0f172a; font-size: 14px; outline: none; transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+    .field input::placeholder { color: #94a3b8; }
+    .field input:focus { border-color: #2563eb; background: #fff; box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
+    .field input.invalid { border-color: #dc2626; }
+    .submit-btn {
+      width: 100%; height: 48px; margin-top: 8px; border-radius: 12px; border: 0; cursor: pointer;
+      background: #2563eb; color: #fff; font-weight: 700; font-size: 14px; letter-spacing: 0.28px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+      transition: background .2s, transform .15s;
+    }
+    .submit-btn:hover { background: #1d4ed8; }
+    .submit-btn:active { transform: translateY(1px); }
+    .submit-btn:disabled { opacity: .7; cursor: wait; }
+    .form-note { text-align: center; font-size: 12px; line-height: 18px; color: #94a3b8; padding-top: 8px; }
+    .form-status { display: none; padding: 12px 14px; border-radius: 8px; font-size: 14px; line-height: 20px; margin-top: 4px; }
+    .form-status.show { display: block; }
+    .form-status.success { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+    .form-status.error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+    .form-fields-hidden { display: none; }
+
+    /* ---------- 4. TESTIMONIALS ---------- */
+    .testimonials { background: #fff; padding: 96px 0; }
+    .testimonials__wrap { display: flex; flex-direction: column; gap: 64px; align-items: center; }
+    .testimonials .section-title { color: #0f172a; }
+    .reviews { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; width: 100%; }
+    .review {
+      background: #f8fafc; border-radius: 16px; padding: 32px;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+      display: flex; flex-direction: column; justify-content: space-between; gap: 26px;
+    }
+    .stars { display: flex; gap: 4px; }
+    .stars svg { width: 17px; height: 16px; color: #f59e0b; fill: #f59e0b; }
+    .review__quote { font-style: italic; font-size: 16px; line-height: 26px; color: #334155; letter-spacing: -0.08px; }
+    .review__author { display: flex; align-items: center; gap: 8px; padding-top: 16px; }
+    .avatar { width: 40px; height: 40px; border-radius: 9999px; background: #2563eb; color: #fff; display: grid; place-items: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; flex-shrink: 0; }
+    .author-name { font-weight: 700; font-size: 14px; letter-spacing: 0.28px; color: #0f172a; line-height: 20px; }
+    .author-role { font-size: 12px; letter-spacing: 0.12px; color: #64748b; line-height: 18px; }
+
+    /* ---------- 5. FAQ ---------- */
+    .faq { background: #f8fafc; padding: 96px 192px; }
+    .faq__wrap { max-width: 896px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px; }
+    .faq .section-header { gap: 16px; }
+    .faq .section-title { font-size: 36px; }
+    .faq-list { display: flex; flex-direction: column; gap: 16px; }
+    .faq-item { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+    .faq-btn {
+      width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 24px; background: none; border: 0; cursor: pointer; text-align: left;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 20px; line-height: 28px; letter-spacing: -0.2px; color: #0f172a;
+    }
+    .faq-icon { width: 14px; height: 14px; flex-shrink: 0; color: #64748b; transition: transform .25s ease; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+    .faq-item.open .faq-panel { grid-template-rows: 1fr; }
+    .faq-panel > div { overflow: hidden; }
+    .faq-panel p { padding: 0 24px 24px; font-size: 15px; line-height: 24px; color: #475569; }
+
+    /* ---------- 6. FINAL CTA ---------- */
+    .cta { background: #0c1321; padding: 80px 32px; }
+    .cta__card {
+      position: relative; overflow: hidden; max-width: 1216px; margin: 0 auto; border-radius: 24px;
+      background: linear-gradient(to bottom, #232a39 0%, #19202e 50%, #151b2a 100%);
+      padding: 64px 32px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .cta__card::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(37,99,235,0.25) 0%, rgba(37,99,235,0) 50%);
+      pointer-events: none;
+    }
+    .cta__card > * { position: relative; }
+    .cta h2 { font-size: 48px; line-height: 56px; letter-spacing: -1.2px; color: #dce2f6; font-weight: 700; margin-bottom: 16px; max-width: 672px; }
+    .cta p { font-size: 18px; line-height: 29px; letter-spacing: -0.18px; color: #c3c6d7; margin-bottom: 40px; max-width: 672px; }
+    .cta .btn--primary { box-shadow: 0 0 17px rgba(37,99,235,0.5); font-weight: 700; color: #eeefff; }
+    .arrow { width: 14px; height: 14px; }
+
+    /* ---------- 7. FOOTER ---------- */
+    .footer { background: #070e1c; padding: 64px 0 48px; }
+    .footer__inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; gap: 48px; }
+    .footer__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; }
+    .footer__brand { grid-column: 1 / span 5; padding-right: 32px; }
+    .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.5px; color: #dce2f6; margin-bottom: 8px; }
+    .logo span { color: #a4c9ff; }
+    .footer__tag { font-size: 14px; font-weight: 600; letter-spacing: 0.28px; color: #a4c9ff; margin-bottom: 12px; }
+    .footer__desc { font-size: 14px; line-height: 22.75px; color: #c3c6d7; max-width: 460px; }
+    .footer__col { display: flex; flex-direction: column; gap: 16px; }
+    .footer__col--links { grid-column: 6 / span 3; }
+    .footer__col--contact { grid-column: 9 / span 4; }
+    .footer__title { font-weight: 700; font-size: 14px; letter-spacing: 0.28px; color: #dce2f6; }
+    .footer__links { display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a { font-size: 14px; line-height: 22px; color: #c3c6d7; transition: color .2s; }
+    .footer__links a:hover { color: #a4c9ff; }
+    .contact-row { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #c3c6d7; }
+    .contact-row svg { width: 16px; height: 16px; color: #a4c9ff; flex-shrink: 0; }
+    .socials { display: flex; gap: 12px; padding-top: 4px; }
+    .social {
+      width: 40px; height: 40px; border-radius: 8px; background: #19202e; color: #c3c6d7;
+      display: grid; place-items: center; font-weight: 700; font-size: 11px; letter-spacing: 0.88px; transition: background .2s, color .2s;
+    }
+    .social:hover { background: #232a39; color: #a4c9ff; }
+    .copyright {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+      padding-top: 32px; border-top: 1px solid rgba(195,198,215,0.08);
+      font-size: 12px; letter-spacing: 0.12px; color: #c3c6d7;
+    }
+    .copyright .engineered { font-weight: 600; font-size: 11px; letter-spacing: 0.88px; color: #b4c5ff; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1100px) {
+      .hero__copy { grid-column: 1 / -1; }
+      .hero__visual { grid-column: 1 / -1; max-width: 560px; width: 100%; margin: 24px auto 0; }
+      .hero h1 { font-size: 42px; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .faq { padding: 96px 32px; }
+    }
+    @media (max-width: 900px) {
+      .lead__copy, .lead__form-card { grid-column: 1 / -1; }
+      .reviews { grid-template-columns: 1fr; }
+      .footer__brand, .footer__col--links, .footer__col--contact { grid-column: 1 / -1; padding-right: 0; }
+      .footer__grid { row-gap: 40px; }
+      .section-title, .lead h2 { font-size: 30px; line-height: 38px; }
+      .cta h2 { font-size: 36px; line-height: 44px; }
+    }
+    @media (max-width: 640px) {
+      .container, .hero, .footer__inner, .cta { padding-left: 20px; padding-right: 20px; }
+      .hero { padding-top: 72px; padding-bottom: 72px; }
+      .hero h1 { font-size: 34px; line-height: 1.15; }
+      .hero__body { font-size: 16px; line-height: 26px; }
+      .btn { width: 100%; padding: 0 20px; }
+      .hero__ctas { flex-direction: column; }
+      .trust-item { min-width: 100%; }
+      .badge--global { right: -6px; top: -14px; }
+      .badge--growth { left: -6px; bottom: -18px; }
+      .badge--online { left: -6px; }
+      .badge--engage { right: 6px; }
+      .impact, .testimonials, .lead, .faq { padding: 72px 0; }
+      .stats { grid-template-columns: 1fr; }
+      .lead__form-card { padding: 28px 22px; }
+      .faq { padding-left: 20px; padding-right: 20px; }
+      .faq-btn { font-size: 17px; padding: 20px; }
+      .faq-panel p { padding: 0 20px 20px; }
+      .cta__card { padding: 48px 22px; }
+      .cta h2 { font-size: 30px; line-height: 38px; }
+      .cta p { font-size: 16px; line-height: 26px; }
+      .copyright { flex-direction: column; align-items: flex-start; }
+      .stage { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero" id="home">
+    <div class="glow glow--top"></div>
+    <div class="glow glow--right"></div>
+
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <div class="hero__eyebrow">
+          <span class="pill pill--glass"><span class="dot"></span>YOUR DIGITAL GROWTH PARTNER</span>
+        </div>
+
+        <h1>Your Business Deserves <span class="gradient-text">More</span> Than Just a Website.</h1>
+
+        <p class="hero__body">
+          Your business has something valuable to offer. Let's make sure the world sees it.
+          TYSON WORLD creates professional, modern, and engaging websites that help businesses build trust, attract customers, and grow beyond boundaries.
+        </p>
+
+        <div class="hero__ctas">
+          <a href="#contact" class="btn btn--primary">
+            Get Your Website Today
+            <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5"/></svg>
+          </a>
+          <a href="#services" class="btn btn--ghost">Explore Our Services</a>
+        </div>
+
+        <div class="hero__trust">
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+            Professional Website Design
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+            Built for Business Growth
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+            Reach Customers Worldwide
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="stage">
+          <div class="stage__browser">
+            <div class="stage__bar"><span></span><span></span><span></span></div>
+            <div class="stage__hero-block"></div>
+            <div class="stage__cols"><div></div><div></div><div></div></div>
+            <div class="stage__chart">
+              <span style="height:35%"></span><span style="height:55%"></span><span style="height:45%"></span>
+              <span style="height:72%"></span><span style="height:60%"></span><span style="height:88%"></span>
+            </div>
+          </div>
+          <div class="gradient-overlay"></div>
+        </div>
+
+        <div class="badge badge--global">
+          <div class="badge__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+          </div>
+          <div>
+            <div class="badge__label">Network</div>
+            <div class="badge__value">Global Reach</div>
+          </div>
+        </div>
+
+        <div class="badge badge--online">
+          <span class="dot"></span>
+          Online Presence 24/7
+        </div>
+
+        <div class="badge badge--growth">
+          <div>
+            <div class="big">+184%</div>
+            <div class="sub">Business Growth</div>
+          </div>
+        </div>
+
+        <div class="badge badge--engage">
+          99.8% Engagement
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. IMPACT ============ -->
+  <section class="impact" id="about">
+    <div class="container">
+      <div class="impact__grid">
+        <div class="section-header">
+          <span class="pill pill--blue-light">OUR IMPACT</span>
+          <h2 class="section-title">Turning Business Ideas Into Digital Success.</h2>
+          <p class="section-sub">A great website is more than an online presence. It's an opportunity to make a strong first impression, connect with the right audience, and create new possibilities for your business.</p>
+        </div>
+
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+            </div>
+            <div class="stat-card__num">50+</div>
+            <div class="stat-card__label">Websites Created</div>
+            <div class="stat-card__desc">Professional websites architected for growing businesses worldwide.</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div class="stat-card__num">100%</div>
+            <div class="stat-card__label">Client Commitment</div>
+            <div class="stat-card__desc">Focused uncompromisingly on quality, precision, and stakeholder satisfaction.</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <div class="stat-card__num">24/7</div>
+            <div class="stat-card__label">Online Presence</div>
+            <div class="stat-card__desc">Your digital storefront stays persistently discoverable and open round the clock.</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+            </div>
+            <div class="stat-card__num">Global</div>
+            <div class="stat-card__label">Business Reach</div>
+            <div class="stat-card__desc">Connect with prospective clients, enterprise partners, and buyers beyond borders.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. LEAD GEN & CONTACT FORM ============ -->
+  <section class="lead" id="contact">
+    <div class="glow glow--bottom"></div>
+    <div class="container">
+      <div class="lead__grid">
+        <div class="lead__copy">
+          <div class="eyebrow-text">LET'S BUILD SOMETHING GREAT</div>
+          <h2>Ready to Take Your Business Online?</h2>
+          <p class="lead__body">
+            Whether you're starting a new business or looking to improve your existing online presence, we're here to help.
+            Tell us a little about your business and what you're looking for. We'll get in touch to understand your goals and discuss how the right website can help you move forward.
+          </p>
+
+          <div class="benefits">
+            <div class="benefit">
+              <div class="benefit__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <h4>Personalized Website Solutions</h4>
+                <p>Custom-tailored user journeys matched exactly to your company's vertical and target audience.</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <div class="benefit__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4M9 4h11v11"/></svg>
+              </div>
+              <div>
+                <h4>Professional Design Approach</h4>
+                <p>Engineered performance with rapid response times and surgical typographic precision across all devices.</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <div class="benefit__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+              </div>
+              <div>
+                <h4>Support for Your Business Goals</h4>
+                <p>Dedicated architectural guidance focusing on high conversion, organic trust, and repeatable expansion.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lead__form-card">
+          <h3>Let's Talk About Your Website</h3>
+          <p class="form-sub">Fill in your details and we'll contact you soon.</p>
+
+          <form class="form" id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="john@yourcompany.com" autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel" />
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              Let's Get Started
+              <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5"/></svg>
+            </button>
+
+            <div class="form-status" id="formStatus" role="status"></div>
+
+            <p class="form-note">Your information will only be used to respond to your enquiry.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. TESTIMONIALS ============ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials__wrap">
+        <div class="section-header">
+          <span class="pill pill--blue-soft">CLIENT EXPERIENCES</span>
+          <h2 class="section-title">Good Work Speaks for Itself.</h2>
+          <p class="section-sub">The best part of building websites is seeing businesses gain confidence in how they present themselves online. We believe every project should deliver a great experience, from the first conversation to the final website.</p>
+        </div>
+
+        <div class="reviews">
+          <div class="review">
+            <div>
+              <div class="stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <p class="review__quote" style="margin-top:24px">"The website gave my business a much more professional look. The overall experience was smooth, and the final result was exactly the kind of online presence I wanted."</p>
+            </div>
+            <div class="review__author">
+              <div class="avatar">M</div>
+              <div>
+                <div class="author-name">Michael Scott</div>
+                <div class="author-role">Business Owner</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review">
+            <div>
+              <div class="stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <p class="review__quote" style="margin-top:24px">"I wanted a website that would help people understand my services and trust my brand. TYSON WORLD helped bring that vision to life."</p>
+            </div>
+            <div class="review__author">
+              <div class="avatar">E</div>
+              <div>
+                <div class="author-name">Elena Vance</div>
+                <div class="author-role">Business Owner &amp; Founder</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review">
+            <div>
+              <div class="stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <p class="review__quote" style="margin-top:24px">"The website looks modern, works smoothly, and represents my business beautifully. I'm happy with the attention given to the details."</p>
+            </div>
+            <div class="review__author">
+              <div class="avatar">D</div>
+              <div>
+                <div class="author-name">David Kim</div>
+                <div class="author-role">Business Owner / Director</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. FAQ ============ -->
+  <section class="faq" id="faqs">
+    <div class="faq__wrap">
+      <div class="section-header">
+        <span class="pill pill--blue-light">GOT QUESTIONS?</span>
+        <h2 class="section-title">Everything You Need to Know Before Getting Started.</h2>
+        <p class="section-sub">Choosing the right website service can feel like a big decision. Here are some answers to help you understand how we work.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span>1. Why does my business need a website?</span>
+            <svg class="faq-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>
+          </button>
+          <div class="faq-panel"><div><p>A website gives customers a place to learn about you at any time, builds trust before the first conversation, and makes your business easy to find online.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span>2. What types of websites does TYSON WORLD create?</span>
+            <svg class="faq-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>
+          </button>
+          <div class="faq-panel"><div><p>We build business websites, service and portfolio sites, landing pages, and e-commerce storefronts, each tailored to your industry and goals.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span>3. How long does it take to build a website?</span>
+            <svg class="faq-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>
+          </button>
+          <div class="faq-panel"><div><p>Timelines depend on scope. Most projects take a few weeks from discovery to launch, and we confirm a clear schedule before work begins.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span>4. Will my website work on mobile phones?</span>
+            <svg class="faq-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>
+          </button>
+          <div class="faq-panel"><div><p>Yes. Every site is designed to be fully responsive, so it looks and works well on phones, tablets, and desktops.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span>5. Can a website help increase my sales?</span>
+            <svg class="faq-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>
+          </button>
+          <div class="faq-panel"><div><p>A well-structured site with clear messaging and easy contact options turns visitors into enquiries and customers, which supports real sales growth.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span>6. Can you redesign my existing website?</span>
+            <svg class="faq-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>
+          </button>
+          <div class="faq-panel"><div><p>Yes. We can refresh the design, improve performance, and restructure content while keeping what already works for your business.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span>7. Will I be able to update my website in the future?</span>
+            <svg class="faq-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>
+          </button>
+          <div class="faq-panel"><div><p>Absolutely. We set things up so you can keep your content current, and we are available for ongoing updates whenever you need them.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            <span>8. How do I get started with TYSON WORLD?</span>
+            <svg class="faq-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>
+          </button>
+          <div class="faq-panel"><div><p>Simply fill in the contact form above with your name, email, and phone number. We'll get in touch to understand your goals and next steps.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. FINAL CTA ============ -->
+  <section class="cta">
+    <div class="cta__card">
+      <h2>Your Next Big Opportunity Starts Online.</h2>
+      <p>Let's create a website that represents your brand, connects with your audience, and helps your business move forward.</p>
+      <a href="#contact" class="btn btn--primary">
+        Start Your Project
+        <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ 7. FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="logo">TYSON <span>WORLD</span></div>
+          <div class="footer__tag">Your Vision. Our Website. A Bigger Future.</div>
+          <p class="footer__desc">
+            We help businesses build their digital identity through modern, professional websites designed to create trust, reach more people, and open doors to new opportunities.
+          </p>
+        </div>
+
+        <div class="footer__col footer__col--links">
+          <div class="footer__title">Quick Links</div>
+          <nav class="footer__links">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Our Services</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+            <a href="#faqs">FAQs</a>
+          </nav>
+        </div>
+
+        <div class="footer__col footer__col--contact">
+          <div class="footer__title">Let's Connect</div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg>
+            your-email@example.com
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            +91 XXXXX XXXXX
+          </div>
+          <div class="footer__title" style="font-size:12px;letter-spacing:0.48px;margin-top:12px">Follow Transmission</div>
+          <div class="socials">
+            <a class="social" href="#" aria-label="Instagram">IG</a>
+            <a class="social" href="#" aria-label="LinkedIn">LI</a>
+            <a class="social" href="#" aria-label="Facebook">FB</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <div>© 2026 TYSON WORLD. All Rights Reserved. | Designed to help businesses grow digitally.</div>
+        <div class="engineered">ENGINEERED AT LOW-LATENCY</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ----- Apps Script Web app URL -----
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyUdKk-TeUOx0SZw_ZbG5bkaeoansiP9_EXLP_sYFytnCHJ374c9-oOzni645E1EKjYuw/exec";
+
+    // ----- FAQ accordion -----
+    document.querySelectorAll(".faq-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const item = btn.closest(".faq-item");
+        const isOpen = item.classList.toggle("open");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    });
+
+    // ----- Contact form -----
+    const form = document.getElementById("contactForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const statusEl = document.getElementById("formStatus");
+
+    function showStatus(type, message) {
+      statusEl.className = "form-status show " + type;
+      statusEl.textContent = message;
+    }
+
+    function setLoading(isLoading) {
+      submitBtn.disabled = isLoading;
+      submitBtn.firstChild.textContent = isLoading ? "Sending… " : "Let's Get Started ";
+    }
+
+    function showSuccess() {
+      setLoading(false);
+      form.reset();
+      showStatus("success", "Thank you! Your details have been received. We'll be in touch soon.");
+    }
+
+    function showError() {
+      setLoading(false);
+      showStatus("error", "Something went wrong. Please try again in a moment.");
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      ["name", "email", "phone"].forEach(function (id) {
+        document.getElementById(id).classList.remove("invalid");
+      });
+
+      if (!name || !email || !phone) {
+        if (!name) document.getElementById("name").classList.add("invalid");
+        if (!email) document.getElementById("email").classList.add("invalid");
+        if (!phone) document.getElementById("phone").classList.add("invalid");
+        showStatus("error", "Please fill in your name, email, and phone number.");
+        return;
+      }
+
+      const url = SCRIPT_URL + "?" + new URLSearchParams({ name: name, email: email, phone: phone });
+
+      setLoading(true);
+      statusEl.className = "form-status";
+
+      fetch(url, { method: "GET", mode: "no-cors" })
+        .then(() => showSuccess())
+        .catch(() => showError());
+    });
+  </script>
+</body>
+</html>
